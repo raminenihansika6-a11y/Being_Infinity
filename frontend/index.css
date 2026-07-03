@@ -1,3 +1,15 @@
 h1 {
     color: red;
 }
+
+div {
+    text-align: center;
+    border : 3px solid rgb(19, 189, 61);
+}
+
+div:hover {
+    background-color: lightblue;
+}
+#p1 {
+    color: blueviolet;
+}
