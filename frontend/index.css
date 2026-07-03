@@ -2,9 +2,23 @@ h1 {
     color: red;
 }
 
-div {
+#home {
     text-align: center;
     border : 3px solid rgb(19, 189, 61);
+}
+
+#nav {
+    text-align: center;
+    background-color: rgb(41, 197, 211);
+    height: 25px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+#nav a{
+    margin: 8px 5px;
+    text-decoration: none;
+    color: white;
 }
 
 div:hover {
