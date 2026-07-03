@@ -28,3 +28,39 @@ div:hover {
 #p2 {
     color: blueviolet;
 }
+
+#card {
+    border: ;
+    align-items: center;
+    margin: 500px;
+    margin-top: 20px;
+}
+
+#card-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#card-name {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#card-gender {
+    text-align: center;
+}
+
+#toggle-btn {
+    align-items: center;
+}
