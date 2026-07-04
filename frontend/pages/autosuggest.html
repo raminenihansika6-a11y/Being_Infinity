@@ -2,10 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoSuggest</title>
+    <!-- <link rel="stylesheet" href="auto-suggest.css"> -->
+     <style>
+        .left-bar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        .right-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .search-section {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .c1 {
+            color:blueviolet
+        }
+
+        .tag-line {
+            font-weight: 300;
+            color: grey;
+        }
+
+        .search-box {
+            border-radius: 20px;
+            width: 190px;
+            padding-top: 10px;
+            padding-left: 45px;
+            padding-right: 55px;
+            padding-bottom: 10px;
+        }
+
+        .lens {
+            position: relative;
+            left: 35px;
+        }
+
+        #suggestion-box {
+            /* border: 1px solid black; */
+            width: 45%; 
+            /* padding: 10px 10px 10px 10px; */
+            margin-left: auto;
+        }
+
+        #suggestion-item {
+            border: 1px solid grey;
+            padding: 10px;
+            border-radius: 10px;
+        }
+     </style>
 </head>
 <body>
-    <h1>AutoSuggestPage</h1>
+    <div>
+        <span class = "left-bar">&#9881;</span>  
+        <span class = "right-bar">&#8226; online | &#128336; - ms</span>
+    </div>
+    
+    <div class = "search-section">
+        <h1><span class = "c1">Being </span>Infinity</h1>
+        <p class = "tag-line">One million phrases. Four algorithms. Prefix Based Auto Suggest.</p>
+        <span>
+            <span class = "lens">&#128269</span> 
+            <input class = "search-box" id = "search-box" placeholder="Start typing to search "></span>
+        </span>
+        <div id = "suggestionBox">
+            <!-- Suggestion box -->
+        </div>
+    </div>
+    <script>
+        var searchBox = document.getElementById("search-box")
+        var suggestionBox = document.getElementById("suggestionBox")
+        searchBox.addEventListener("input", function() {
+            // 1: Get user typed text
+            var userInput = searchBox.value;
+            if (userInput.trim() === "") {
+                alert("Enter valid input");
+            } else {
+                var url1 = " https://autosuggest-backend.onrender.com/api/autosuggest?q=";
+                var url3 = "&algorithm=brute&limit=10&weighted=false";
+                var url = url1 + userInput + url3;
+                // 2: Make api call to get suggestions
+                fetch(url).
+                    then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        console.log(data);
+                        // 3: Display data in HTML
+                        var resultsArray = data.results;
+                        var htmlResults = "";
+                        for (var i = 0; i < resultsArray.length; i++) {
+
+                            htmlResults += "<div id = 'suggestion-item'>" + resultsArray[i].text + "</div>"
+                        }
+                        // var suggestionBox = document.getElementById("suggestionBox")
+                        suggestionBox.innerHTML = htmlResults;
+
+                    })
+                    // 3: Display results in HTML
+            }
+        })
+    </script>
 </body>
 </html>
