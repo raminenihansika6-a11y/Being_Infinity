@@ -9,3 +9,4 @@ app.listen(PORT, function() {
     console.log("successfully running at http://localhost:" + PORT)
 })
 
+console.log("backend")

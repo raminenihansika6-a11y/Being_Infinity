@@ -30,7 +30,7 @@ div:hover {
 }
 
 #card {
-    border: ;
+    border: 3px;
     align-items: center;
     margin: 500px;
     margin-top: 20px;
@@ -63,4 +63,19 @@ div:hover {
 
 #toggle-btn {
     align-items: center;
+}
+
+#card {
+    text-align: center;
+    border: 3px solid black;
+    align-items: ;
+    margin-top: 5px;
+    width: 300px;
+    height: 580px;
+    margin: 3px auto;
+    border-radius: 8px;
+}
+
+#btn {
+    width: 100%;
 }
